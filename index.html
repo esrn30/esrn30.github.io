@@ -115,6 +115,17 @@ footer{background:#080808;padding:3rem 2.5rem;display:grid;grid-template-columns
 .footer-links a:hover{color:var(--blanco);}
 .footer-copy{grid-column:1/-1;padding-top:2rem;border-top:1px solid rgba(245,242,236,0.08);font-size:0.75rem;color:rgba(245,242,236,0.25);font-weight:300;}
 
+
+.galeria-grid { display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:auto auto; gap:4px; aspect-ratio:16/9; }
+.galeria-item--main { grid-row:1/3; }
+.galeria-side { display:grid; grid-rows: 1fr 1fr; gap:4px; }
+.galeria-item { position:relative; overflow:hidden; cursor:zoom-in; background:#111; }
+.galeria-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
+.galeria-item:hover img { transform:scale(1.04); }
+.galeria-overlay { position:absolute; inset:0; background:rgba(13,13,13,0.4); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; }
+.galeria-overlay span { font-size:2rem; color:var(--blanco); font-weight:300; line-height:1; }
+.galeria-item:hover .galeria-overlay { opacity:1; }
+
 @media(max-width:768px){
   nav{padding:0.75rem 1.25rem;}
   .nav-links{display:none;}
@@ -263,15 +274,50 @@ footer{background:#080808;padding:3rem 2.5rem;display:grid;grid-template-columns
     </div>
 
     <div class="trabajo-card">
-      <div class="trabajos-placeholder">
-        <div class="trabajos-placeholder-icon">▶</div>
-        <div class="trabajos-placeholder-text">Próximo trabajo</div>
+      <div class="galeria-grid">
+        <div class="galeria-item galeria-item--main" onclick="abrirLightbox(0)">
+          <img src="foto1.jpg" alt="Composición fotográfica 1" loading="lazy">
+          <div class="galeria-overlay"><span>+</span></div>
+        </div>
+        <div class="galeria-side">
+          <div class="galeria-item" onclick="abrirLightbox(1)">
+            <img src="foto2.jpg" alt="Composición fotográfica 2" loading="lazy">
+            <div class="galeria-overlay"><span>+</span></div>
+          </div>
+          <div class="galeria-item" onclick="abrirLightbox(2)">
+            <img src="foto3.jpg" alt="Composición fotográfica 3" loading="lazy">
+            <div class="galeria-overlay"><span>+</span></div>
+          </div>
+        </div>
+        <div class="galeria-item" onclick="abrirLightbox(3)">
+          <img src="foto4.jpg" alt="Composición fotográfica 4" loading="lazy">
+          <div class="galeria-overlay"><span>+</span></div>
+        </div>
+        <div class="galeria-item" onclick="abrirLightbox(4)">
+          <img src="foto5.jpg" alt="Composición fotográfica 5" loading="lazy">
+          <div class="galeria-overlay"><span>+</span></div>
+        </div>
       </div>
       <div class="trabajo-info">
-        <p class="trabajo-cat" style="opacity:0.3;">— · —</p>
-        <p class="trabajo-titulo" style="opacity:0.2;">En preparación</p>
+        <p class="trabajo-cat">Fotografía · Trabajo práctico</p>
+        <p class="trabajo-titulo">Composición</p>
+        <p class="trabajo-anio">5° 1° · 2026</p>
+      </div>
+      <div class="ficha">
+        <div class="ficha-row"><span class="ficha-key">Materia</span><span class="ficha-val">Fotografía</span></div>
+        <div class="ficha-row"><span class="ficha-key">Curso</span><span class="ficha-val">5° 1°</span></div>
+        <div class="ficha-row"><span class="ficha-key">Docente</span><span class="ficha-val">Germán Burgos</span></div>
       </div>
     </div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="cerrarLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:1000;align-items:center;justify-content:center;cursor:zoom-out;">
+  <button onclick="cambiarFoto(-1);event.stopPropagation()" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;color:#f5f2ec;font-size:2.5rem;cursor:pointer;opacity:0.7;padding:1rem;">&#8592;</button>
+  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;">
+  <button onclick="cambiarFoto(1);event.stopPropagation()" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;color:#f5f2ec;font-size:2.5rem;cursor:pointer;opacity:0.7;padding:1rem;">&#8594;</button>
+  <button onclick="cerrarLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#f5f2ec;font-size:1.5rem;cursor:pointer;opacity:0.7;">&#10005;</button>
+  <div id="lightbox-counter" style="position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;letter-spacing:0.2em;color:rgba(245,242,236,0.5);font-size:0.8rem;"></div>
+</div>
 
   </div>
 </section>
@@ -341,6 +387,35 @@ footer{background:#080808;padding:3rem 2.5rem;display:grid;grid-template-columns
   </div>
   <p class="footer-copy">© 2026 Orientación Audiovisual · ESRN N°30 · El Bolsón, Patagonia Argentina · www.esrn30.edu.ar</p>
 </footer>
+
+
+<script>
+const fotos = ['foto1.jpg','foto2.jpg','foto3.jpg','foto4.jpg','foto5.jpg'];
+let fotoActual = 0;
+function abrirLightbox(i) {
+  fotoActual = i;
+  document.getElementById('lightbox-img').src = fotos[i];
+  document.getElementById('lightbox-counter').textContent = (i+1) + ' / ' + fotos.length;
+  document.getElementById('lightbox').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function cerrarLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+function cambiarFoto(dir) {
+  fotoActual = (fotoActual + dir + fotos.length) % fotos.length;
+  document.getElementById('lightbox-img').src = fotos[fotoActual];
+  document.getElementById('lightbox-counter').textContent = (fotoActual+1) + ' / ' + fotos.length;
+}
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('lightbox').style.display === 'flex') {
+    if (e.key === 'ArrowRight') cambiarFoto(1);
+    if (e.key === 'ArrowLeft') cambiarFoto(-1);
+    if (e.key === 'Escape') cerrarLightbox();
+  }
+});
+</script>
 
 </body>
 </html>
