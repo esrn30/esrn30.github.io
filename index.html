@@ -202,64 +202,71 @@ footer{background:#080808;padding:3rem 2.5rem;display:grid;grid-template-columns
   </div>
 </section>
 
+<style>
+.trabajo-vimeo { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#0d0d0d; }
+.trabajo-vimeo iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+.ficha { margin-top:1.5rem; border-top:1px solid rgba(196,131,42,0.2); padding-top:1.5rem; }
+.ficha-row { display:flex; gap:1rem; margin-bottom:0.5rem; font-size:0.85rem; line-height:1.5; }
+.ficha-key { font-family:'Barlow Condensed',sans-serif; letter-spacing:0.15em; text-transform:uppercase; color:var(--acento); font-size:0.7rem; min-width:120px; padding-top:0.1rem; }
+.ficha-val { color:rgba(245,242,236,0.7); font-weight:300; }
+.trabajos-placeholder { border:1px solid rgba(196,131,42,0.15); aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem; }
+.trabajos-placeholder-icon { font-size:2rem; opacity:0.2; }
+.trabajos-placeholder-text { font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(245,242,236,0.2); }
+</style>
+
 <section class="trabajos" id="trabajos">
   <div class="trabajos-header">
     <div>
       <p class="section-eyebrow">Producciones estudiantiles</p>
       <h2 class="section-title">Trabajos de los estudiantes</h2>
     </div>
-    <a href="#" class="ver-mas">Ver archivo completo</a>
+    <a href="https://vimeo.com/user/audiovisualESRN30" target="_blank" class="ver-mas">Ver en Vimeo →</a>
   </div>
   <div class="trabajos-grid">
+
     <div class="trabajo-card">
-      <div class="trabajo-thumb">
-        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
-          <rect width="320" height="240" fill="#1a2e1a"/>
-          <rect x="0" y="160" width="320" height="80" fill="#0d1a0d"/>
-          <circle cx="160" cy="90" r="45" fill="#2d4a2d"/>
-          <polygon points="145,75 145,105 175,90" fill="#c4832a"/>
-        </svg>
-        <div class="trabajo-overlay"><div class="play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="white"><polygon points="5,3 15,9 5,15"/></svg></div></div>
+      <div class="trabajo-vimeo">
+        <iframe src="https://player.vimeo.com/video/1192895963?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Silencios Cómplices"></iframe>
       </div>
       <div class="trabajo-info">
-        <p class="trabajo-cat">Documental</p>
-        <p class="trabajo-titulo">El río que no se ve</p>
-        <p class="trabajo-anio">5° año · 2025</p>
+        <p class="trabajo-cat">Cortometraje · Ficción</p>
+        <p class="trabajo-titulo">Silencios Cómplices</p>
+        <p class="trabajo-anio">Taller de Realización Audiovisual · 2019</p>
+      </div>
+      <div class="ficha">
+        <div class="ficha-row"><span class="ficha-key">Dirección</span><span class="ficha-val">Ludmila Becerra Heckmann</span></div>
+        <div class="ficha-row"><span class="ficha-key">Producción</span><span class="ficha-val">Kathya Pascolini</span></div>
+        <div class="ficha-row"><span class="ficha-key">Cámara</span><span class="ficha-val">Ariadna Pozas</span></div>
+        <div class="ficha-row"><span class="ficha-key">Montaje</span><span class="ficha-val">Diego Berthe</span></div>
+        <div class="ficha-row"><span class="ficha-key">Sonido</span><span class="ficha-val">Ezequiel Inalef · Diego Berthe</span></div>
+        <div class="ficha-row"><span class="ficha-key">Arte</span><span class="ficha-val">Ariana Hermosilla · Jimena Martinez · Zoe Sambueza · Iara Sfeir · Yoseli Gonzalez · Florencia Alvarez</span></div>
+        <div class="ficha-row"><span class="ficha-key">Reparto</span><span class="ficha-val">Katya Pascolini · Lautaro Fernandez · Ezequiel Inalef · Zoe Sambueza · Matias Mayorga · Diego Berthe · Germán Burgos · Marcos Pascolini · Rusia Rosas · Julieta Daffonchio · Ricardo Arce</span></div>
+        <div class="ficha-row"><span class="ficha-key">Docentes</span><span class="ficha-val">Germán Burgos · Ayelen Rodriguez · Julieta Daffonchio</span></div>
       </div>
     </div>
+
     <div class="trabajo-card">
-      <div class="trabajo-thumb">
-        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
-          <rect width="320" height="240" fill="#1a1a2e"/>
-          <rect x="0" y="140" width="320" height="100" fill="#0d0d1a"/>
-          <circle cx="80" cy="70" r="30" fill="rgba(196,131,42,0.3)"/>
-          <circle cx="240" cy="90" r="20" fill="rgba(196,131,42,0.15)"/>
-          <rect x="130" y="50" width="60" height="40" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-        </svg>
-        <div class="trabajo-overlay"><div class="play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="white"><polygon points="5,3 15,9 5,15"/></svg></div></div>
+      <div class="trabajos-placeholder">
+        <div class="trabajos-placeholder-icon">▶</div>
+        <div class="trabajos-placeholder-text">Próximo trabajo</div>
       </div>
       <div class="trabajo-info">
-        <p class="trabajo-cat">Fotografía</p>
-        <p class="trabajo-titulo">Noche de invierno en la comarca</p>
-        <p class="trabajo-anio">4° año · 2025</p>
+        <p class="trabajo-cat" style="opacity:0.3;">— · —</p>
+        <p class="trabajo-titulo" style="opacity:0.2;">En preparación</p>
       </div>
     </div>
+
     <div class="trabajo-card">
-      <div class="trabajo-thumb">
-        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
-          <rect width="320" height="240" fill="#2e1a0d"/>
-          <polygon points="0,240 80,120 160,170 240,90 320,140 320,240" fill="#3d2a10"/>
-          <polygon points="0,240 60,180 120,200 200,150 280,180 320,160 320,240" fill="#2a1a08"/>
-          <circle cx="260" cy="50" r="25" fill="rgba(196,131,42,0.25)"/>
-        </svg>
-        <div class="trabajo-overlay"><div class="play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="white"><polygon points="5,3 15,9 5,15"/></svg></div></div>
+      <div class="trabajos-placeholder">
+        <div class="trabajos-placeholder-icon">▶</div>
+        <div class="trabajos-placeholder-text">Próximo trabajo</div>
       </div>
       <div class="trabajo-info">
-        <p class="trabajo-cat">Cortometraje</p>
-        <p class="trabajo-titulo">Humo de leña</p>
-        <p class="trabajo-anio">5° año · 2024</p>
+        <p class="trabajo-cat" style="opacity:0.3;">— · —</p>
+        <p class="trabajo-titulo" style="opacity:0.2;">En preparación</p>
       </div>
     </div>
+
   </div>
 </section>
 
